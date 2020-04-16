@@ -248,8 +248,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
 
   calculateDueDate(): string {
     const date = new Date()
-    date.setDate(date.getDate() + 7)
-
-    return dateFormat(date, 'yyyy-mm-dd') as string
+    date.setDate(date.getDate())
+    return dateFormat(date, 'yyyy-mm-dd hh:mm:ss') as string
   }
 }
