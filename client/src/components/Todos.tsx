@@ -137,7 +137,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
   render() {
     return (
       <div>
-        <Header as="h1">TODOs List</Header>
+        <Header as="h1">Your Thoughts...</Header>
 
         {this.renderCreateTodoInput()}
 
@@ -155,12 +155,12 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
               color: 'teal',
               labelPosition: 'left',
               icon: 'add',
-              content: 'New task',
+              content: 'Diary Entry',
               onClick: this.onTodoCreate
             }}
             fluid
             actionPosition="left"
-            placeholder="What do you want done?"
+            placeholder="Dear diary..."
             onChange={this.handleNameChange}
           />
         </Grid.Column>
@@ -183,7 +183,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
     return (
       <Grid.Row>
         <Loader indeterminate active inline="centered">
-          Loading TODOs
+          Loading your thoughts...
         </Loader>
       </Grid.Row>
     )
