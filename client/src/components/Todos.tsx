@@ -23,6 +23,7 @@ import {
 } from '../api/todos-api'
 import Auth from '../auth/Auth'
 import { Todo } from '../types/Todo'
+import Typist from 'react-typist'
 
 interface TodosProps {
   auth: Auth
@@ -137,8 +138,9 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
   render() {
     return (
       <div>
-        <Header as="h1">Your Thoughts...</Header>
-
+        <Typist>
+          <Header as="h1">Your Thoughts...</Header>
+        </Typist>
         {this.renderCreateTodoInput()}
 
         {this.renderTodos()}
