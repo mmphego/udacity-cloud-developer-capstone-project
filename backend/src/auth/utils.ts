@@ -1,5 +1,8 @@
 import { decode } from 'jsonwebtoken'
 import { JwtPayload } from './JwtPayload'
+import { createLogger } from '../utils/logger'
+
+const logger = createLogger('utils')
 
 /**
  * Parse a JWT token and return a user id
@@ -13,7 +16,8 @@ export function parseUserId(jwtToken: string): string {
   if (!process.env.IS_OFFLINE) {
     return decodedJwt.sub
   } else {
-    return 'helloworld'
+    logger.info('Running offline.')
+    return 'offline'
   }
 }
 
