@@ -1,9 +1,6 @@
 {
   "name": "Node Env",
   "dockerFile": "Dockerfile",
-  // Comment out the next line to run as root instead. Linux users, update
-  // Dockerfile with your user's UID/GID if not 1000.
-  "runArgs": ["-u", "node"],
   "appPort": 3000,
   "settings": {
     "workbench.colorTheme": "Community Material Theme Darker High Contrast",
@@ -14,5 +11,8 @@
     "esbenp.prettier-vscode",
     "equinusocio.vsc-material-theme"
   ],
-  "postCreateCommand": "npm install"
+  "postCreateCommand": "npm install",
+  // Comment out the next line to run as root instead. Linux users, update
+  // Dockerfile with your user's UID/GID if not 1000.
+  "runArgs": ["-u", "node"]
 }
