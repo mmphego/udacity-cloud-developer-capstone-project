@@ -17,6 +17,22 @@ custom:
   serverless-offline:
     port: 3003
 
+  # Read: https://github.com/99xt/serverless-dynamodb-local
+  dynamodb:
+    # If you only want to use DynamoDB Local in some stages, declare them here
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
+      seed: true
+      convertEmptyValues: true
+    # Uncomment only if you already have a DynamoDB running locally
+    # noStart: true
+
 plugins:
   - serverless-iam-roles-per-function
   - serverless-reqvalidator-plugin
