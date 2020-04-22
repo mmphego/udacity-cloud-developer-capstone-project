@@ -67,7 +67,7 @@ functions:
           - '*'
 
   GetDiary:
-    handler: src/lambda/http/getDiary.handler
+    handler: src/lambda/http/getDiarys.handler
     events:
       - http:
           authorizer: Auth
