@@ -10,7 +10,11 @@ import { JwtPayload } from './JwtPayload'
  */
 export function parseUserId(jwtToken: string): string {
   const decodedJwt = decode(jwtToken) as JwtPayload
-  return decodedJwt.sub
+  if (!process.env.IS_OFFLINE) {
+    return decodedJwt.sub
+  } else {
+    return 'helloworld'
+  }
 }
 
 /**
