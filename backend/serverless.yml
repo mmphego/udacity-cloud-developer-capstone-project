@@ -46,6 +46,7 @@ provider:
     ATTACHMENTS_S3_BUCKET: serverless-diary-attachments-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
     JWKS_URL: 'https://dev-hhrq1tik.auth0.com/.well-known/jwks.json'
+    AWS_XRAY_CONTEXT_MISSING: LOG_ERROR
 
   iamRoleStatements:
     - Effect: Allow
