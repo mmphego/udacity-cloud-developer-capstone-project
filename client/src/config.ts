@@ -1,6 +1,10 @@
 const apiId = 'xa69eap5s3'
 const region = 'us-east-1'
+const devPort = '3050'
+
 export const apiEndpoint = `https://${apiId}.execute-api.${region}.amazonaws.com/dev`
+export const devapiEndpoint = `http://localhost:${devPort}/dev`
+export const subDirectory = 'diaries'
 
 export const authConfig = {
   domain: 'dev-hhrq1tik.auth0.com',
