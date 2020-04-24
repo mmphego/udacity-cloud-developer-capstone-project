@@ -45,11 +45,22 @@ Authentication in this application, is done through [Auth0](https://auth0.com/),
 #### Development
 
 In order to run local developments, the following packages are needed:
+- [serverless](https://github.com/serverless/serverless)
+- [serverless-offline](https://github.com/dherault/serverless-offline)
 - [serverless-dynamodb-local](https://github.com/99xt/serverless-dynamodb-local)
 - [serverless-s3-local](https://github.com/ar90n/serverless-s3-local)
 
 **Dependency Installation**
+
+The Serverless Framework will need us to configure access to AWS. This can be accomplished by running
+
+`serverless config credentials --provider aws --key KEY --secret SECRET`
+
+>Where KEY and SECRET are our AWS Key and secret key. We are not deploying to AWS, but the serverless plugin needs this configuration to exist in order to work correctly.
+
 ```bash
+npm install -g serverless
+npm install -g serverless-offline
 serverless plugin install --name serverless-dynamodb-local
 serverless plugin install --name serverless-s3-local
 ```
