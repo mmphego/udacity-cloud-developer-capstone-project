@@ -144,7 +144,8 @@ const createS3Client = () => {
 
     return new AWS.S3({
       s3ForcePathStyle: true,
-      endpoint: new AWS.Endpoint('http://localhost:8200'),
+      // endpoint: new AWS.Endpoint('http://localhost:8200'),
+      endpoint: 'http://localhost:8200',
       accessKeyId: 'S3RVER',
       secretAccessKey: 'S3RVER'
     })
