@@ -37,7 +37,7 @@ custom:
     s3:
       port: 8200
       directory: /tmp
-      # noStart: true
+      noStart: true
 
 plugins:
   - serverless-iam-roles-per-function
