@@ -15,7 +15,7 @@ if (!process.env.REACT_APP_IS_OFFLINE) {
 console.log(Endpoint)
 
 export async function getDiaries(idToken: string): Promise<Diary[]> {
-  console.log('Fetching todos')
+  console.log('Fetching diarys')
   if (!process.env.REACT_APP_IS_OFFLINE) {
     console.log('Offline')
     JWTtoken = idToken
@@ -62,7 +62,7 @@ export async function createDiary(
 
 export async function patchDiary(
   idToken: string,
-  todoId: string,
+  diaryId: string,
   updatedDiary: UpdateDiaryRequest
 ): Promise<void> {
   if (!process.env.REACT_APP_IS_OFFLINE) {
@@ -72,7 +72,7 @@ export async function patchDiary(
     JWTtoken = '123'
   }
   await Axios.patch(
-    `${Endpoint}/${subDirectory}/${todoId}`,
+    `${Endpoint}/${subDirectory}/${diaryId}`,
     JSON.stringify(updatedDiary),
     {
       headers: {
@@ -85,7 +85,7 @@ export async function patchDiary(
 
 export async function deleteDiary(
   idToken: string,
-  todoId: string
+  diaryId: string
 ): Promise<void> {
   if (!process.env.REACT_APP_IS_OFFLINE) {
     console.log('Offline')
@@ -93,8 +93,8 @@ export async function deleteDiary(
   } else {
     JWTtoken = '123'
   }
-  console.log('Deletion endpoint', `${Endpoint}/${subDirectory}/${todoId}`)
-  await Axios.delete(`${Endpoint}/${subDirectory}/${todoId}`, {
+  console.log('Deletion endpoint', `${Endpoint}/${subDirectory}/${diaryId}`)
+  await Axios.delete(`${Endpoint}/${subDirectory}/${diaryId}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${JWTtoken}`
@@ -104,7 +104,7 @@ export async function deleteDiary(
 
 export async function getUploadUrl(
   idToken: string,
-  todoId: string
+  diaryId: string
 ): Promise<string> {
   if (!process.env.REACT_APP_IS_OFFLINE) {
     console.log('Offline')
@@ -113,7 +113,7 @@ export async function getUploadUrl(
     JWTtoken = '123'
   }
   const response = await Axios.post(
-    `${Endpoint}/${subDirectory}/${todoId}/attachment`,
+    `${Endpoint}/${subDirectory}/${diaryId}/attachment`,
     '',
     {
       headers: {
