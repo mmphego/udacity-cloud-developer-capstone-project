@@ -63,11 +63,13 @@ serverless offline --httpPort 3050 --printOutput
 ```
 Once the serverless application is running open [Postman](https://www.postman.com) and test the requests, see configuration below.
 
-On a separate terminal run the following command which will start a dynamoDb instance locally:
+On a separate terminal run the following command which will start a dynamoDb and s3 instance locally:
 ```bash
 cd backend
 serverless dynamodb install
-serverless dynamodb start
+serverless dynamodb start &
+serverless s3 create
+serverless s3 start &
 ```
 
 #### Deployment
