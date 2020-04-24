@@ -237,7 +237,12 @@ export class Diaries extends React.PureComponent<DiariesProps, DiariesState> {
               </Grid.Column>
 
               {diary.attachmentUrl && diary.validUrl ? (
-                <Image src={diary.attachmentUrl} size="small" wrapped />
+                <Image
+                  src={diary.attachmentUrl}
+                  size="small"
+                  wrapped
+                  centered
+                />
               ) : null}
 
               <Grid.Column width={16}>
