@@ -54,6 +54,7 @@ serverless plugin install --name serverless-dynamodb-local
 serverless plugin install --name serverless-s3-local
 ```
 
+**Run serverless offline**
 
 ```bash
 cd backend
