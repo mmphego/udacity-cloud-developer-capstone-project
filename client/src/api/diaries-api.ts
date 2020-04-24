@@ -1,8 +1,8 @@
 import { apiEndpoint, subDirectory, devapiEndpoint } from '../config'
-import { Todo } from '../types/Todo'
-import { CreateTodoRequest } from '../types/CreateTodoRequest'
+import { Diary } from '../types/Diary'
+import { CreateDiaryRequest } from '../types/CreateDiaryRequest'
 import Axios from 'axios'
-import { UpdateTodoRequest } from '../types/UpdateTodoRequest'
+import { UpdateDiaryRequest } from '../types/UpdateDiaryRequest'
 
 console.log('is offline:', process.env.REACT_APP_IS_OFFLINE)
 let Endpoint: string
@@ -14,7 +14,7 @@ if (!process.env.REACT_APP_IS_OFFLINE) {
 }
 console.log(Endpoint)
 
-export async function getTodos(idToken: string): Promise<Todo[]> {
+export async function getDiaries(idToken: string): Promise<Diary[]> {
   console.log('Fetching todos')
   if (!process.env.REACT_APP_IS_OFFLINE) {
     console.log('Offline')
@@ -30,15 +30,15 @@ export async function getTodos(idToken: string): Promise<Todo[]> {
       Authorization: `Bearer ${JWTtoken}`
     }
   })
-  console.log('Todos:', response.data)
+  console.log('Diaries:', response.data)
   console.log('token', JWTtoken)
   return response.data.items
 }
 
-export async function createTodo(
+export async function createDiary(
   idToken: string,
-  newTodo: CreateTodoRequest
-): Promise<Todo> {
+  newDiary: CreateDiaryRequest
+): Promise<Diary> {
   if (!process.env.REACT_APP_IS_OFFLINE) {
     console.log('Offline')
     JWTtoken = idToken
@@ -47,7 +47,7 @@ export async function createTodo(
   }
   const response = await Axios.post(
     `${Endpoint}/${subDirectory}`,
-    JSON.stringify(newTodo),
+    JSON.stringify(newDiary),
     {
       headers: {
         'Content-Type': 'application/json',
@@ -60,10 +60,10 @@ export async function createTodo(
   return response.data.newItem
 }
 
-export async function patchTodo(
+export async function patchDiary(
   idToken: string,
   todoId: string,
-  updatedTodo: UpdateTodoRequest
+  updatedDiary: UpdateDiaryRequest
 ): Promise<void> {
   if (!process.env.REACT_APP_IS_OFFLINE) {
     JWTtoken = idToken
@@ -73,7 +73,7 @@ export async function patchTodo(
   }
   await Axios.patch(
     `${Endpoint}/${subDirectory}/${todoId}`,
-    JSON.stringify(updatedTodo),
+    JSON.stringify(updatedDiary),
     {
       headers: {
         'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ export async function patchTodo(
   )
 }
 
-export async function deleteTodo(
+export async function deleteDiary(
   idToken: string,
   todoId: string
 ): Promise<void> {
