@@ -58,6 +58,7 @@ serverless plugin install --name serverless-s3-local
 
 ```bash
 cd backend
+npm i
 export IS_OFFLINE=true
 serverless offline --httpPort 3050 --printOutput
 ```
