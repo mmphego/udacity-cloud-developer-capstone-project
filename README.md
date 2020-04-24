@@ -32,6 +32,17 @@ Authentication in this application, is done through [Auth0](https://auth0.com/),
 
 #### Development
 
+In order to run local developments, the following packages are needed:
+- [serverless-dynamodb-local](https://github.com/99xt/serverless-dynamodb-local)
+- [serverless-s3-local](https://github.com/ar90n/serverless-s3-local)
+
+**Dependency Installation**
+```bash
+serverless plugin install --name serverless-dynamodb-local 
+serverless plugin install --name serverless-s3-local
+```
+
+
 ```bash
 cd backend
 export IS_OFFLINE=true
@@ -54,7 +65,7 @@ To deploy an application run the following commands:
 cd backend
 export NODE_OPTIONS=--max_old_space_size=8192
 npm install
-sls deploy -v
+serverless deploy -v
 ```
 
 ### The Frontend
