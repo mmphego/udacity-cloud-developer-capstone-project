@@ -2,9 +2,21 @@
 
 Serverless diary application where a user can note down their thoughts, feelings and images.
 
+
 ## Functionality of the application
 
-This application will allow creating/removing/updating/fetching Diary entries. Each Diary entry can optionally have an attachment image. Each user only has access to Diary entries that he/she has created through login and authentication.
+- [x] **A user needs to authenticate in order to use an application home: See image below**
+- [x] **The application allows users to create, update, delete diary items.**
+- [x] **The application allows users to upload a file.**
+- [x] **The application only displays items/Diaries for a logged in user.**
+
+### Images
+![image](https://user-images.githubusercontent.com/7910856/80206818-51aa7f80-862d-11ea-842f-3169516927f9.png)
+
+![image](https://user-images.githubusercontent.com/7910856/80209244-fcbd3800-8631-11ea-9aaa-abe7bef2a5f4.png)
+
+![image](https://user-images.githubusercontent.com/7910856/80209666-bfa57580-8632-11ea-91e2-0e7bd86b5bc1.png)
+
 
 The application consists of a frontend and backend.
 
@@ -76,7 +88,7 @@ To run a client application run the following commands:
 cd client
 npm install
 # If locally developing
-export IS_OFFLINE=true
+export REACT_APP_IS_OFFLINE=true
 npm run start
 ```
 
