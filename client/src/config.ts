@@ -1,5 +1,5 @@
-const apiId = 'xa69eap5s3'
-const region = 'af-south-1'
+const apiId = 'a7yquhvqy6'
+const region = 'us-east-1'
 const devPort = '3050'
 
 export const apiEndpoint = `https://${apiId}.execute-api.${region}.amazonaws.com/dev`
