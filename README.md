@@ -38,7 +38,7 @@ In order to run local developments, the following packages are needed:
 
 **Dependency Installation**
 ```bash
-serverless plugin install --name serverless-dynamodb-local 
+serverless plugin install --name serverless-dynamodb-local
 serverless plugin install --name serverless-s3-local
 ```
 
@@ -75,6 +75,8 @@ To run a client application run the following commands:
 ```bash
 cd client
 npm install
+# If locally developing
+export IS_OFFLINE=true
 npm run start
 ```
 
