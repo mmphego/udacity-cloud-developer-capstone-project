@@ -39,6 +39,7 @@ plugins:
   - serverless-webpack
   - serverless-aws-documentation
   - serverless-dynamodb-local
+  - serverless-s3-local
   - serverless-offline
 
 package:
