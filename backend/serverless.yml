@@ -13,11 +13,11 @@ custom:
         title: ${self:service.name}
         description: Serverless diary application
 
-  # Read: https://github.com/dherault/serverless-offline
+  # See: https://github.com/dherault/serverless-offline
   serverless-offline:
     port: 3003
 
-  # Read: https://github.com/99xt/serverless-dynamodb-local
+  # See: https://github.com/99xt/serverless-dynamodb-local
   dynamodb:
     # If you only want to use DynamoDB Local in some stages, declare them here
     stages:
@@ -32,6 +32,12 @@ custom:
       convertEmptyValues: true
     # Uncomment only if you already have a DynamoDB running locally
     # noStart: true
+
+    # See: https://github.com/ar90n/serverless-s3-local
+    s3:
+      port: 8200
+      directory: /tmp
+      # noStart: true
 
 plugins:
   - serverless-iam-roles-per-function

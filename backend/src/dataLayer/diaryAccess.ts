@@ -17,7 +17,7 @@ const logger = createLogger('diary-access')
 export class DiaryAccess {
   constructor(
     private readonly docClient: DocumentClient = createDynamoDBClient(),
-    private readonly s3 = new XAWS.S3({ signatureVersion: 'v4' }),
+    private readonly s3 = createS3Client(),
     private readonly diarysTable = process.env.DIARY_TABLE,
     private readonly bucketName = process.env.ATTACHMENTS_S3_BUCKET,
     private readonly urlExpiration = process.env.SIGNED_URL_EXPIRATION,
@@ -135,5 +135,20 @@ const createDynamoDBClient = () => {
     })
   } else {
     return new XAWS.DynamoDB.DocumentClient()
+  }
+}
+
+const createS3Client = () => {
+  if (process.env.IS_OFFLINE) {
+    logger.info('Creating a local S3 instance')
+
+    return new AWS.S3({
+      s3ForcePathStyle: true,
+      endpoint: new AWS.Endpoint('http://localhost:8200'),
+      accessKeyId: 'S3RVER',
+      secretAccessKey: 'S3RVER'
+    })
+  } else {
+    return new XAWS.S3({ signatureVersion: 'v4' })
   }
 }
