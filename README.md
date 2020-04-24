@@ -95,6 +95,12 @@ export REACT_APP_IS_OFFLINE=true
 npm run start
 ```
 
+or, run on a docker container:
+```bash
+docker build -t "$USER/$(basename $PWD)" .
+docker run -it --rm -v ${PWD}:/app -p 3000:3000 "$USER/$(basename $PWD)"
+```
+
 This should start a development server with the React application that will interact with the serverless application.
 
 ## Best practices applied

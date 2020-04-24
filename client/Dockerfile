@@ -1,3 +1,5 @@
+# Usage:
+#   docker run -it --rm -v ${PWD}:/app -p 3000:3000 "$USER/$(basename $PWD)"
 FROM node:12
 
 # set working directory
