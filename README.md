@@ -85,13 +85,13 @@ serverless deploy -v
 
 ### The Frontend
 
-To run a client application run the following commands:
+To run a client application first edit the `client/src/config.ts` file to set correct parameters. And then run the following commands:
 
 ```bash
 cd client
 npm install
 # If locally developing
-export REACT_APP_IS_OFFLINE=true
+export REACT_APP_IS_OFFLINE=false
 npm run start
 ```
 
