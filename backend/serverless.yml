@@ -1,5 +1,5 @@
 service:
-  name: serverless-daily-diary
+  name: serverless-diary
 
 custom:
   webpack:
@@ -60,7 +60,7 @@ provider:
     apiGateway: true
 
   stage: ${opt:stage, 'dev'}
-  region: ${opt:region, 'us-east-1'}
+  region: ${opt:region, 'af-south-1'}
 
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
